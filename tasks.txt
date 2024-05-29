@@ -1,0 +1,15 @@
+
+give 5 seconds notice before game is starting.
+make a big announcment when the is a new high score. 
+change color of start button when active and when not active
+clean the code from redundant comments.
+add the flip animation.
+test
+add to github.
+send link to elad.
+make documantation.
+update github.
+remove redundantcies
+test
+update to github
+

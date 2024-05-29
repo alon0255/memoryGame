@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="main.js"></script>
+  <title>Memory Game</title>
+</head>
+
+<body>
+  <h1>Memory Game</h1>
+  <p>This is a classic memory game!<br>
+    Start by choosing a theme, then you will have to choose a board size to play
+    with.
+    <br>
+    once ready, press the start game button! Good Luck!
+  </p>
+  <div id="app">
+
+    <div id="scoreBoard" class="hidden">
+      <h2 id="highScore">Highest Score</h2>
+      <table>
+        <thead>
+
+          <tr>
+            <th>Theme</th>
+            <th>Board Size</th>
+            <th>Best Time</th>
+          </tr>
+        </thead>
+        <tbody id="scoreBoardBody">
+
+        </tbody>
+      </table>
+    </div>
+
+    <div class="controls">
+      <select class="hidden" name="gameTheme" id="selectTheme">
+        <option value="def">Select Theme</option>
+        <option value="animals">Animals</option>
+        <option value="flowers">Flowers</option>
+        <option value="people">Peoples</option>
+        <option value="vegetables">Vegtabels</option>
+      </select>
+      <select name="gameBoardSize" id="selectBoardSize" disabled>
+        <option value="def">Select board Size</option>
+      </select>
+      <input class="hidden" id="restartGame" type="button" value="Restart Game">
+      <input class="hidden" id="startGame" type="button" value="Start Game" disabled>
+      <input class="hidden" id="resetGame" type="button" value="Reset Game">
+    </div>
+    <div class="hidden" id="timer"><span id="min"></span>:<span id="sec"></span>:<span id="msec"></span></div>
+    <div class="hidden" id="board"></div>
+  </div>
+
+</body>
+
+</html>
