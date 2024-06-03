@@ -48,6 +48,7 @@ let userGamesStats = {
   }
 
 }
+
 init();
 
 function init() {
@@ -329,7 +330,6 @@ function displayRestartButton() {
 }
 
 //Controllers
-
 /*this should move to view*/
 function flipCard(card) {
   card.classList.add('flip');
