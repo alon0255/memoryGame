@@ -156,8 +156,6 @@ function checkMatch(card) {
   coupled.values().next().value.addEventListener('click', handleCardClick);
   console.log('Nada')
   return false;
-
-
 }
 
 function getMaxBoardSize(theme) {
@@ -218,8 +216,6 @@ function loadHighestScore() {
         tdValue.textContent = userGamesStats[chosenTheme][bordSize];
         tr.appendChild(tdValue);
         tbody.appendChild(tr);
-
-
       }
     }
   }
@@ -418,6 +414,7 @@ function startGame() {
   const theme = document.getElementById('selectTheme').value;
   chosenTheme = theme; // what to do with this? should i leave it at this scope? 
   const boardSize = document.getElementById('selectBoardSize').value;
+  console.log(boardSize);
   let cards = createDeck(Math.pow(Number(boardSize), 2), theme);
   chosenSize = boardSize;
 
