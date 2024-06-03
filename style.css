@@ -155,3 +155,8 @@ h2 ,p{
   margin: 0;
   padding: 5px;
 }
+#gameOverMsg{
+  color:#ba8200;
+  font-weight: bold;
+
+}

@@ -153,6 +153,7 @@ function checkMatch(card) {
     checkWinCondition();
     return true;
   }
+  
   console.log(card.target);
   coupled.values().next().value.addEventListener('click', handleCardClick);
   console.log('Nada')
@@ -345,26 +346,22 @@ function handleCardClick(card) {
     coupled.set(card.target.dataset['id'], card.target);
     card.target.removeEventListener('click', handleCardClick);
   } else {
-
     if (!checkMatch(card)) {
       setTimeout(() => {
-
         flipCard(card.target);
         flipCard(coupled.values().next().value);
         coupled.clear();
-
 
         const cards = document.getElementsByClassName('card');
         for (let i = 0; i < cards.length; i++) {
           cards[i].addEventListener('click', handleCardClick);
         }
       }, 1000);
+
       const cards = document.getElementsByClassName('card');
       for (let i = 0; i < cards.length; i++) {
         cards[i].removeEventListener('click', handleCardClick);
       }
-
-
     }
   }
 }
