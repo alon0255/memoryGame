@@ -98,8 +98,8 @@ input{
 .controls {
   display: flex;
   flex-direction: row;
-  justify-content: center; /* This will center the items horizontally */
-  align-items: center; /* This will center the items vertically */
+  justify-content: center; 
+  align-items: center; 
   flex-wrap: wrap;
   margin: 10px;
 }
@@ -122,11 +122,11 @@ input{
  table{
   border-radius: 5px;
   border-collapse: collapse;
-  border: 1px solid  #ddd; /* Add a border to see the rounded corners */
+  border: 1px solid  #ddd; 
  }
 
 th, td {
-  text-align: center; /* This will horizontally align the text inside the td */
+  text-align: center; 
   padding: 5px;
 
 }
