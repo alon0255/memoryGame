@@ -179,25 +179,21 @@ function endGame() {
 
 
 function saveScore(score) {
-  console.log(userGamesStats[chosenTheme][chosenSize]);
-  console.log(score);
+
   if (userGamesStats[chosenTheme][chosenSize] != "00:00:000") {
     if (score < userGamesStats[chosenTheme][chosenSize]) {
       userGamesStats[chosenTheme][chosenSize] = score;
       saveScoreToLocalStorage();
-      console.log(userGamesStats);
-      console.log('saving new high score ' + score)
+      displayGameOverMsg("NEW HIGH SCORE!")
       loadHighestScore();
-
-    } else return;
+    } else displayGameOverMsg("");
   } else {
     userGamesStats[chosenTheme][chosenSize] = score;
     saveScoreToLocalStorage();
-    console.log(userGamesStats);
-    console.log('saving first time score ' + score)
     const firstGame = JSON.parse(localStorage.getItem('firstGame'));
-
+    displayGameOverMsg("Great score for first time, Now try to break it!")
     loadHighestScore();
+
   }
 
 }
@@ -279,6 +275,15 @@ function displayBoard() {
   updateView(board, "toggleHide");
 }
 
+function displayGameOverMsg(msg = "") {
+  const gameOver = document.getElementById('gameOver');
+  const gameOverMsg = document.getElementById('gameOverMsg');
+  gameOverMsg.textContent = msg ? msg : "I'm sure you can do better!";
+  updateView(gameOver, "toggleHide");
+
+
+}
+
 function displayTimer() {
   const timer = document.getElementById('timer');
   updateView(timer, "toggleHide");
@@ -298,6 +303,7 @@ function displayResetButton() {
   const resetBtn = document.getElementById('resetGame');
   resetBtn.addEventListener('click', handleResetButtonClick);
   updateView(resetBtn, "toggleHide");
+
 }
 
 function displaySelectThemeOption() {
@@ -416,6 +422,7 @@ function handleRestartGame() {
   displayTimer();
   resetTimer();
   loadHighestScore();
+  displayGameOverMsg("");
   startGame();
 }
 

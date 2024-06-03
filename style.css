@@ -149,3 +149,9 @@ p{
   font-size:larger;
   text-align: center;
 }
+
+h2 ,p{
+  text-align: center;
+  margin: 0;
+  padding: 5px;
+}
