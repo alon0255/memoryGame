@@ -54,7 +54,6 @@ function init() {
   displaySelectThemeOption();
   if (localStorage.getItem('gameStats') === null) {
     localStorage.setItem('gameStats', JSON.stringify(userGamesStats));
-    // localStorage.setItem('firstGame', JSON.stringify(true));
     loadHighestScore();
   } else {
     loadHighestScore();
@@ -123,9 +122,7 @@ function createDeck(size, theme) {
     let randomCard = Math.floor(Math.random() * themes[theme]['numOfCards']);
     cardRange[i] = cardRange[randomCard];
     cardRange[randomCard] = tmp;
-
   }
-
 
   for (let i = 0; i < size / 2; i++) {
     deck[i] = cardRange[i];
@@ -204,10 +201,6 @@ function saveScoreToLocalStorage() {
 
 /** Should it be in View ? or split between view and logic?  */
 function loadHighestScore() {
-  // const scoreBoard = document.getElementById('scoreBoard');
-  // updateView(scoreBoard, 'toggleHide');
-  // scoreBoard.classList.toggle('addFlex');
-
   updateView(document.getElementById('scoreBoardBody'), 'removeChildren');
   userGamesStats = JSON.parse(localStorage.getItem('gameStats'));
   for (const chosenTheme in userGamesStats) {
@@ -280,8 +273,6 @@ function displayGameOverMsg(msg = "") {
   const gameOverMsg = document.getElementById('gameOverMsg');
   gameOverMsg.textContent = msg ? msg : "I'm sure you can do better!";
   updateView(gameOver, "toggleHide");
-
-
 }
 
 function displayTimer() {
@@ -290,14 +281,13 @@ function displayTimer() {
 }
 
 
-
-
 function displayStartButton() {
   const startBtn = document.getElementById('startGame');
   startBtn.addEventListener('click', handleStartButtonClick);
   updateView(startBtn, "toggleHide");
 }
 displayStartButton()
+
 
 function displayResetButton() {
   const resetBtn = document.getElementById('resetGame');
@@ -313,7 +303,6 @@ function displaySelectThemeOption() {
 }
 
 
-
 function displayBoardSizeOption(theme) {
   const selectBoardSize = document.getElementById('selectBoardSize');
   selectBoardSize.addEventListener('click', handleBoardSizeClick);
@@ -326,7 +315,6 @@ function displayBoardSizeOption(theme) {
   updateView(document.getElementById('startGame'), 'disable');
 }
 
-
 function addBoardSizeOptions(theme, selectBoardSize) {
   let boardSize = getMaxBoardSize(theme);
   console.log("Size: " + boardSize);
@@ -337,8 +325,6 @@ function addBoardSizeOptions(theme, selectBoardSize) {
     selectBoardSize.appendChild(option);
   }
 }
-
-
 
 function displayRestartButton() {
   const restartGame = document.getElementById('restartGame');
