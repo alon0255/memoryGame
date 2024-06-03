@@ -52,9 +52,9 @@ init();
 
 function init() {
   displaySelectThemeOption();
-  if (localStorage.getItem('gameStats') === null || localStorage.getItem('firstGame') === null) {
+  if (localStorage.getItem('gameStats') === null) {
     localStorage.setItem('gameStats', JSON.stringify(userGamesStats));
-    localStorage.setItem('firstGame', JSON.stringify(true));
+    // localStorage.setItem('firstGame', JSON.stringify(true));
     loadHighestScore();
   } else {
     loadHighestScore();
@@ -208,9 +208,9 @@ function saveScoreToLocalStorage() {
 
 /** Should it be in View ? or split between view and logic?  */
 function loadHighestScore() {
-  const scoreBoard = document.getElementById('scoreBoard');
-  updateView(scoreBoard, 'toggleHide');
-  scoreBoard.classList.toggle('addFlex');
+  // const scoreBoard = document.getElementById('scoreBoard');
+  // updateView(scoreBoard, 'toggleHide');
+  // scoreBoard.classList.toggle('addFlex');
 
   updateView(document.getElementById('scoreBoardBody'), 'removeChildren');
   userGamesStats = JSON.parse(localStorage.getItem('gameStats'));
