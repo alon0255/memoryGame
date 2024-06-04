@@ -153,7 +153,7 @@ function checkMatch(card) {
     checkWinCondition();
     return true;
   }
-  
+
   console.log(card.target);
   coupled.values().next().value.addEventListener('click', handleCardClick);
   console.log('Nada')
@@ -190,7 +190,6 @@ function saveScore(score) {
     const firstGame = JSON.parse(localStorage.getItem('firstGame'));
     displayGameOverMsg("Great score for first time, Now try to break it!")
     loadHighestScore();
-
   }
 
 }
