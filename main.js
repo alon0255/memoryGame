@@ -1,5 +1,6 @@
 // Model
 let coupled = new Map();
+
 let themes = {
   animals: {
     maxSize: 6,
@@ -7,7 +8,7 @@ let themes = {
   },
   flowers: {
     maxSize: 6,
-    numOfCards: 49
+    numOfCards: 48
   },
   people: {
     maxSize: 4,
@@ -16,7 +17,6 @@ let themes = {
   vegetables: {
     maxSize: 4,
     numOfCards: 27
-
   }
 }
 
@@ -66,7 +66,7 @@ function stopGame() {
 }
 
 
-// Deivide to model view function
+// Model
 function startTimer() {
   if (!timerOn) {
     let min = document.getElementById('min');
@@ -272,6 +272,11 @@ function displayGameOverMsg(msg = "") {
   updateView(gameOver, "toggleHide");
 }
 
+function CheckGameOverMode() {
+  const gameOver = document.getElementById('gameOver');
+  return gameOver.classList.contains('hidden');
+}
+
 function displayTimer() {
   const timer = document.getElementById('timer');
   updateView(timer, "toggleHide");
@@ -393,6 +398,8 @@ function handleBoardSizeClick() {
 }
 
 
+
+
 // Restart Game -  same condition , new board
 function handleRestartGame() {
   updateView(document.getElementById('board'), "removeChildren");
@@ -400,8 +407,8 @@ function handleRestartGame() {
   displayTimer();
   resetTimer();
   loadHighestScore();
-  displayGameOverMsg("");
   startGame();
+  CheckGameOverMode() ? null : displayGameOverMsg();
 }
 
 
