@@ -103,7 +103,6 @@ function stopTimer() {
   timerOn = true;
   console.log(`Timer Stopped at: ${min}:${sec}:${mils}`)
   clearInterval(timer);
-
   return `${min}:${sec}:${mils}`
 }
 
